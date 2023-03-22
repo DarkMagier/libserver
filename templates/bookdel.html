@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>删除学生</title>
+
+</head>
+<body>
+<div><h1 style="background-color: red">删除图书</h1></div>
+    <form action="/books/delabook" method="POST" id="form" onsubmit="return check()">
+        {% csrf_token %}
+        <input type="text" id="bid" name="bid"value="12345"/>
+    <input type="submit" value="删除图书"/>
+    </form>
+<a href="/books/"><button>返回</button></a>
+</body>
+{% include "formcheck.html" %}
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>所有借阅信息</title>
+</head>
+<body>
+    <h1 style="background-color: red">所有借阅信息</h1></div>
+
+<table border="10">
+    <thead>
+    <td>书号</td>
+    <td>书名</td>
+{#    <td>作者</td>#}
+{#    <td>出版社</td>#}
+    <td>学号</td>
+    <td>姓名</td>
+{#    <td>专业</td>#}
+    <td>班级</td>
+{#    <td>手机号</td>#}
+    <td>借阅日期</td>
+    </thead>
+    <tbody>
+
+    {%for item in contacts.object_list %}
+        <tr>
+            <td>{{ item.bid.bid }}</td>
+            <td>{{ item.bid.bname }}</td>
+{#            <td>{{ item.bid.bauthor }}</td>#}
+{#            <td>{{ item.bid.bpublisher }}</td>#}
+            <td>{{ item.sid.sid }}</td>
+            <td>{{ item.sid.sname }}</td>
+{#            <td>{{ item.sid.smajor }}</td>#}
+            <td>{{ item.sid.sclass }}</td>
+{#            <td>{{ item.sid.sphone }}</td>#}
+            <td>{{ item.bdate }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+    <span>
+        {% if contacts.has_previous %}
+                <a href="?page=1">首页</a> <a href="?page={{contacts.previous_page_number}}">上一页</a>
+        {% endif %}
+        {% for p in page_range %}
+                {% ifequal 0 contacts.number %}
+                    <span>没有数据！</span>
+                {% else %}
+                {% ifequal p contacts.number %}
+                <span style="color: red;background-color: green">{{p}}</span>
+                {% else %}
+                <a href="?page={{p}}">{{p}}</a>
+                {% endifequal %}
+                {% endifequal %}
+        {% endfor %}
+
+        {% if contacts.has_next %}
+                <a href="?page={{contacts.next_page_number}}">下一页</a> <a href="?page={{page_sum}}">尾页</a>
+        {% endif%}
+    <a href="/borrows"><button>返回</button></a>
+</span>
+
+
+</body>
+</html>

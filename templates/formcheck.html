@@ -1,0 +1,21 @@
+<script language="JavaScript">
+    function aa() {
+        alert("执行了！")
+    }
+function check() {
+        form=document.getElementById("form");
+        elem=form.getElementsByTagName("input");
+{#        console.log(elem);#}
+    for (i=0;i<elem.length;i++){
+{#        alert(item.value+"执行了！");#}
+{#        console.log(elem[i]);#}
+        if(elem[i].value==""){
+{#            tag=elem[i].previousSibling();#}
+            alert("不能有空项！");
+            elem[i].focus();
+            return false;
+        }
+    }
+    return true;
+}
+</script>

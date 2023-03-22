@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书馆管理系统</title>
+</head>
+<body>
+<h1 style="background-color: crimson">欢迎来到图书馆管理系统</h1>
+{%   if request.session.is_login %}
+    <div>欢迎登陆！ {{ request.session.username }}<a href="/login/logout"> 退出</a></div>
+{% else %}
+
+<div><a href="/login/"> 登录</a><a href="/login/signup"> 注册</a></div>
+{% endif %}
+<div><a href="/student/">学生管理</a></div>
+<div><a href="/books/">图书管理</a></div>
+<div><a href="/borrows/">图书借阅</a></div>
+
+
+</body>
+</html>

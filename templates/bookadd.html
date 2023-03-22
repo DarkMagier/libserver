@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ titile }}</title>
+</head>
+<body>
+<div><h1 style="background-color: red">添加图书</h1></div>
+    <form action="/books/addabook" method="POST"id="form" onsubmit="return check()">
+        {% csrf_token %}
+        <div><span>书号</span><input name="bid"type="text" value="12345"/><span style="color: red">*</span></div>
+        <div><span>书名</span><input name="bname"type="text" value="Django从入门到放弃"/><span style="color: red">*</span></div>
+        <div><span>作者</span><input name="bauth"type="text"value="MySQL从删库到跑路"/><span style="color: red">*</span></div>
+        <div><span>出版社</span><input name="bpub"type="text"value="JQuery从出生到死亡"/><span style="color: red">*</span></div>
+        <div><span>出版日期</span><input name="bdate"type="date"value="2012-12-21"/><span style="color: red">*</span></div>
+        <div><span>库存</span><input name="bstore"type="text"value="5"/><span style="color: red">*</span></div>
+        <div><input type="submit"value="添加"/></div>
+    </form>
+<a href="/books/"><button>返回</button></a>
+{% include "formcheck.html" %}
+</body>
+</html>

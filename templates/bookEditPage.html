@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改学生信息</title>
+</head>
+<body>
+    <h1 style="background-color: red">{{ msg }}</h1>
+    <form action="editabook" method="POST"id="form" onsubmit="return check()">
+        {% csrf_token %}
+        <input type="text" name="isedit" value="Y"  hidden/>
+        <input name="bid"type="text" value="{{ item.bid }}"hidden/>
+        <div><span>书号</span><input name="bid"type="text" value="{{ item.bid }}" disabled/></div>
+        <div><span>书名</span><input name="bname"type="text" value="{{ item.bname }}"/><span style="color: red">*</span></div>
+        <div><span>作者</span><input name="bauth"type="text"value="{{ item.bauthor }}"/><span style="color: red">*</span></div>
+        <div><span>出版社</span><input name="bpub"type="text"value="{{ item.bpublisher }}"/><span style="color: red">*</span></div>
+        <div><span>出版日期</span><input name="bdate"type="date"value="{{ item.bdate|date:"Y-m-d" }}"/><span style="color: red">*</span></div>
+        <div><span>库存</span><input name="bstore"type="text"value="{{ item.bstore }}"/><span style="color: red">*</span></div>
+      <div><input type="submit" value="修改"/></div>
+    </form>
+    <a href="/books/editabook"><button>返回</button></a>
+</body>
+{% include "formcheck.html" %}
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询结果</title>
+</head>
+<body>
+    <table border="10">
+        <thead>
+        <h1 style="background-color: red">查询结果</h1>
+        </thead>
+        <tbody>
+        <tr>
+        <th scope="row">学号</th>
+        <th scope="row">姓名</th>
+        <th scope="row">班级</th>
+        <th scope="row">专业</th>
+        <th scope="row">手机号</th>
+            </tr>
+        <tr>
+        <td>{{ item.sid }}</td>
+        <td>{{ item.sname }}</td>
+        <td>{{ item.sclass }}</td>
+        <td>{{ item.smajor }}</td>
+        <td>{{ item.sphone }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/student/queryastudent"><button>返回</button></a>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>所有图书信息</title>
+</head>
+<body>
+<div>
+    <h1 style="background-color: red">所有图书信息</h1></div>
+
+<table border="10">
+        <thead>
+        <h1 style="background-color: red">查询结果</h1>
+          <tr>
+        <th scope="row">书号</th>
+        <th scope="row">书名</th>
+        <th scope="row">作者</th>
+        <th scope="row">出版社</th>
+        <th scope="row">出版日期</th>
+        <th scope="row">库存</th>
+        <th scope="row">借阅量</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in itemList %}
+        <tr>
+        <td>{{ item.bid }}</td>
+        <td>{{ item.bname }}</td>
+        <td>{{ item.bauthor }}</td>
+        <td>{{ item.bpublisher }}</td>
+        <td>{{ item.bdate }}</td>
+        <td>{{ item.bstore   }}</td>
+        <td>{{ item.bborrow }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<a href="/books/"><button>返回</button></a>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>所有图书信息</title>
+</head>
+<body>
+<div>
+    <h1 style="background-color: red">所有图书信息</h1></div>
+
+<table border="10">
+        <thead>
+        <h1 style="background-color: red">查询结果</h1>
+          <tr>
+        <th scope="row">书号</th>
+        <th scope="row">书名</th>
+        <th scope="row">作者</th>
+        <th scope="row">出版社</th>
+        <th scope="row">出版日期</th>
+        <th scope="row">库存</th>
+        <th scope="row">借阅量</th>
+            </tr>
+        </thead>
+        <tbody>
+        {%for item in contacts.object_list %}
+        <tr>
+        <td>{{ item.bid }}</td>
+        <td>{{ item.bname }}</td>
+        <td>{{ item.bauthor }}</td>
+        <td>{{ item.bpublisher }}</td>
+        <td>{{ item.bdate }}</td>
+        <td>{{ item.bstore   }}</td>
+        <td>{{ item.bborrow }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<span>
+        {% if contacts.has_previous %}
+                <a href="?page=1">首页</a> <a href="?page={{contacts.previous_page_number}}">上一页</a>
+        {% endif %}
+        {% for p in page_range %}
+                {% ifequal 0 contacts.number %}
+                    <span>没有数据！</span>
+                {% else %}
+                {% ifequal p contacts.number %}
+                <span style="color: red;background-color: green">{{p}}</span>
+                {% else %}
+                <a href="?page={{p}}">{{p}}</a>
+                {% endifequal %}
+                {% endifequal %}
+        {% endfor %}
+
+        {% if contacts.has_next %}
+                <a href="?page={{contacts.next_page_number}}">下一页</a> <a href="?page={{page_sum}}">尾页</a>
+
+        {% endif%}
+ <a href="/books/"><button>返回</button></a>
+</span>
+
+
+
+</body>
+</html>

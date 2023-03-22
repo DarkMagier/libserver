@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询学生-图书馆管理系统</title>
+</head>
+<body>
+    <h1 style="background-color: red">请输入要查询的学号</h1>
+<form action="queryastudent" method="POST"id="form" onsubmit="return check()">
+    {% csrf_token %}
+        <input type="text" name="sid"/>
+        <input type="submit" value="查询">
+
+    </form>
+<a href="/student"><button>返回</button></a>
+
+</body>
+{% include "formcheck.html" %}
+</html>

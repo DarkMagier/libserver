@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>所有学生信息</title>
+</head>
+<body>
+<div>
+    <h1 style="background-color: red">所有学生信息</h1></div>
+
+<table border="10">
+    <thead>
+    <td>学号</td>
+    <td>姓名</td>
+    <td>班级</td>
+    <td>专业</td>
+    <td>手机号</td>
+    </thead>
+    <tbody>
+
+    {%for item in contacts.object_list %}
+        <tr>
+            <td>{{ item.sid }}</td>
+            <td>{{ item.sname }}</td>
+            <td>{{ item.sclass }}</td>
+            <td>{{ item.smajor }}</td>
+            <td>{{ item.sphone }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<span>
+        {% if contacts.has_previous %}
+                <a href="?page=1">首页</a> <a href="?page={{contacts.previous_page_number}}">上一页</a>
+        {% endif %}
+        {% for p in page_range %}
+                {% ifequal p contacts.number %}
+                <span style="color: red;background-color: green">{{p}}</span>
+                {% else %}
+                <a href="?page={{p}}">{{p}}</a>
+                {% endifequal %}
+        {% endfor %}
+
+        {% if contacts.has_next %}
+                <a href="?page={{contacts.next_page_number}}">下一页</a> <a href="?page={{page_sum}}">尾页</a>
+
+        {% endif%}
+<a href="/student/"><button>返回</button></a>
+</span><br><br>
+
+
+</body>
+</html>

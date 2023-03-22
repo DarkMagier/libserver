@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>所有学生信息</title>
+</head>
+<body>
+<div>
+    <h1 style="background-color: red">所有学生信息</h1></div>
+
+<table border="10">
+    <thead>
+    <td>学号</td>
+    <td>姓名</td>
+    <td>班级</td>
+    <td>专业</td>
+    <td>手机号</td>
+    </thead>
+    <tbody>
+
+    {% for item in itemList %}
+        <tr>
+            <td>{{ item.sid }}</td>
+            <td>{{ item.sname }}</td>
+            <td>{{ item.sclass }}</td>
+            <td>{{ item.smajor }}</td>
+            <td>{{ item.sphone }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<a href="/student/"><button>返回</button></a>
+
+</body>
+</html>

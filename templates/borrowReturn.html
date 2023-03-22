@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ titile }}</title>
+</head>
+<h1 style="background-color: red">欢迎还书</h1>
+<body>
+    <form action="/borrows/returnbooks" method="POST"id="form" onsubmit="return check()">
+        {% csrf_token %}
+        <div><span>书  号</span><input name="bid"type="text" value="12345"/></div>
+        <div><span>学  号</span><input name="sid"type="text"value="12345"/></div>
+        <div><input type="submit"value="还书"/></div>
+    </form>
+<a href="/borrows"><button>返回</button></a>
+</body>
+{% include "formcheck.html" %}
+</html>

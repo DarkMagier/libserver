@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全部删除吗</title>
+</head>
+<body>
+<h1 style="background-color: red">全部删除吗！</h1>
+<form method="post" action="delallstudent">
+    {% csrf_token %}
+    <input type="text"  hidden name="choose" value="Y">
+    <input type="submit" value="是的！全删掉!"/>
+</form>
+<a href="/student/"><button>不！返回！</button></a>
+</form>
+</body>
+</html>

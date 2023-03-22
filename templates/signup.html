@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ titile }}</title>
+</head>
+<body>
+<h1 style="background-color: crimson">欢迎注册</h1>
+    <form action="/login/signup" method="POST"id="form" onsubmit="return check()">
+        {% csrf_token %}
+        <div><span>用户名</span><input name="user"type="text"/></div>
+        <div><span>密  码</span><input name="pwd"type="password"/></div>
+        <div><input type="submit"value="注册"/></div>
+    </form>
+</body>
+{% include "formcheck.html" %}
+</html>
